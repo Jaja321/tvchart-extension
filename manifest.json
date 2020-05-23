@@ -1,0 +1,24 @@
+{
+  "name": "TV Chart",
+  "version": "1.0",
+  "description": "View a chart of any TV show's user ratings, by episode.",
+  "content_scripts": [
+    {
+      "matches": ["https://www.imdb.com/title/*"],
+      "js": ["common.js"]
+    },
+    {
+      "matches": ["https://www.imdb.com/title/*"],
+      "css": ["style.css"],
+      "js": ["imdb.js"]
+    }
+  ],
+  "web_accessible_resources": ["images/loading.svg", "images/x.svg"],
+  "icons": {
+    "16": "images/tvmoji16.png",
+    "32": "images/tvmoji32.png",
+    "48": "images/tvmoji48.png",
+    "128": "images/tvmoji128.png"
+  },
+  "manifest_version": 2
+}

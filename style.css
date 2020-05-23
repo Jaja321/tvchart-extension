@@ -1,0 +1,35 @@
+.tvchart-title-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.tvchart-button {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.loading-icon {
+  height: 26px;
+  width: 26px
+}
+
+#tvchart-wrapper { 
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.5);;
+}
+
+#tvchart-frame {
+  height: 90%;
+  max-height: 700px;
+  width: 90%;
+  max-width: 1400px;
+  border-radius: 5px;
+}
