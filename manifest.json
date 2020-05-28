@@ -4,13 +4,17 @@
   "description": "View a chart of any TV show's user ratings, by episode.",
   "content_scripts": [
     {
-      "matches": ["https://www.imdb.com/title/*"],
+      "matches": ["https://www.imdb.com/title/*", "https://www.netflix.com/*"],
+      "css": ["style.css", "hint.min.css"],
       "js": ["common.js"]
     },
     {
       "matches": ["https://www.imdb.com/title/*"],
-      "css": ["style.css"],
       "js": ["imdb.js"]
+    },
+    {
+      "matches": ["https://www.netflix.com/*"],
+      "js": ["netflix.js"]
     }
   ],
   "web_accessible_resources": ["images/loading.svg", "images/x.svg"],

@@ -4,8 +4,8 @@
 }
 
 .tvchart-button {
-  font-size: 20px;
   cursor: pointer;
+  pointer-events: initial;
 }
 
 .loading-icon {
