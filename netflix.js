@@ -16,7 +16,7 @@ const callback = function (mutationsList) {
       if (className && includesOneOf(className, seriesContainerClassKeywords)) {
         setTimeout(() => {
           const duration = element.querySelector('.duration')?.textContent;
-          if (!duration || !isSeriesDuration(duration, seriesDurationKeywords)) {
+          if (!duration || !includesOneOf(duration, seriesDurationKeywords)) {
             //not a series.
             return;
           }
