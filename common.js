@@ -1,4 +1,4 @@
-const TVCHART_URL = 'http://localhost:3000/';
+const TVCHART_URL = 'https://tvchart.benmiz.com/';
 
 const tvchartWrapper = document.createElement('div');
 tvchartWrapper.id = 'tvchart-wrapper';
