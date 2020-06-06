@@ -1,4 +1,4 @@
-const TVCHART_URL = 'https://tvchart.benmiz.com/';
+const TVCHART_URL = 'https://tvchart.benmiz.com';
 
 const tvchartWrapper = document.createElement('div');
 tvchartWrapper.id = 'tvchart-wrapper';
@@ -18,15 +18,15 @@ tvchartWrapper.addEventListener('click', () => {
 function registerButton(title, button, container) {
   button.addEventListener(
     'click',
-    (e) => {
-      tvchartFrame.src = TVCHART_URL + title + '?extension=true';
+    () => {
+      tvchartFrame.src = `${TVCHART_URL}/${title}?extension=true`;
       tvchartWrapper.style.height = '0px';
       container.replaceChild(loadingIcon, button);
       document.body.appendChild(tvchartWrapper);
     },
     true
   );
-  const messageHandler = (e) => {
+  window.addEventListener('message', (e) => {
     const msg = e.data;
     if (msg === 'seriesDataLoaded') {
       tvchartWrapper.style.height = '100%';
@@ -34,11 +34,13 @@ function registerButton(title, button, container) {
     if (container.contains(loadingIcon)) {
       container.replaceChild(button, loadingIcon);
     }
-  };
-  window.addEventListener('message', messageHandler);
+  });
 }
 
 window.addEventListener('message', (e) => {
+  if(e.origin !== TVCHART_URL) {
+    return;
+  }
   const msg = e.data;
   if (msg === 'close') {
     document.body.removeChild(tvchartWrapper);
