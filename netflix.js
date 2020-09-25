@@ -1,5 +1,5 @@
 const seriesDurationKeywords = ['Season', 'Series', 'Part', 'Volume'];
-const seriesContainerClasses = ['bob-card', 'jawBoneOpenContainer', 'jawBonePane'];
+const seriesContainerClasses = ['bob-card', 'jawBoneOpenContainer', 'jawBonePane', 'previewModal', 'detail-modal'];
 
 //Returns true iff one of the strings in arr is contained in str.
 function includesOneOf(str, arr) {
@@ -7,7 +7,7 @@ function includesOneOf(str, arr) {
     if (str.includes(arr[i])) return true;
   }
   return false;
-};
+}
 
 //Detect opening of show details container (i.e when hovering over the show's thumbnail),
 //and inject the chart button.
@@ -22,9 +22,11 @@ const observerCallback = function (mutationsList) {
             //not a series, don't inject button.
             return;
           }
-          const buttonContainer = element.querySelector('div[class~="video-meta"]');
-          const seriesTitle =
-            element.querySelector('.bob-title')?.textContent || element.querySelector('img[class="logo"]')?.alt;
+          const buttonContainer = element.querySelector('div[class="videoMetadata--container"]');
+          const seriesTitle = (
+            element.querySelector('img[class="previewModal--boxart"]') ||
+            document.body.querySelector('img[class="playerModel--player__storyArt"]')
+          )?.alt;
           injectChartButton(seriesTitle, buttonContainer);
         }, 300);
       }
