@@ -25,7 +25,8 @@ const observerCallback = function (mutationsList) {
           const buttonContainer = element.querySelector('div[class="videoMetadata--container"]');
           const seriesTitle = (
             element.querySelector('img[class="previewModal--boxart"]') ||
-            document.body.querySelector('img[class="playerModel--player__storyArt"]')
+            document.body.querySelector('img[class="playerModel--player__storyArt"]') ||
+            document.body.querySelector('img[class="previewModal--player-titleTreatment-logo"]')
           )?.alt;
           injectChartButton(seriesTitle, buttonContainer);
         }, 300);

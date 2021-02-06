@@ -1,6 +1,6 @@
 {
   "name": "TV Chart",
-  "version": "1.2",
+  "version": "1.2.1",
   "description": "View a chart of any TV show's user ratings, by episode.",
   "content_scripts": [
     {
